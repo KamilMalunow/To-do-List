@@ -1,6 +1,6 @@
 function render() {
     let htmlString = "";
-
+    
     for (const task of tasks) {
         htmlString +=
      `
@@ -19,9 +19,16 @@ function render() {
         </div>
     `
     }
+    
     document.querySelector('.tasks').innerHTML = htmlString;
+    
     deleteTask();
     toggleTaskDone();
+}
+
+function showheader(){
+    const tasksHeader = document.querySelector('.tasks_header');
+    tasksHeader.style.display = "grid";
 }
 
 

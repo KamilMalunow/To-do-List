@@ -1,47 +1,90 @@
-html{
+html {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     background-color: rgb(231, 231, 229);
-} 
-*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+::after,
+::before {
     box-sizing: inherit;
 }
 
-main{
+main {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0;
 }
 
-.header{
+.header {
     font-size: 1.5rem;
     margin-top: 5rem;
 }
+
 .container-header {
     background-color: white;
 }
-.container-header > h2{
+
+.container-header>h2 {
     padding: 1rem;
     margin: 0;
 }
 
-.add-new-task{
+.add-new-task {
     margin-top: 3px;
     background-color: white;
     display: grid;
     grid-template-columns: 8fr 1fr;
     gap: 3rem;
-    padding:1.5rem;
+    padding: 1.5rem;
 }
-.add-new-task > .task-text{
+
+.add-new-task>.task-text {
     padding: .6rem;
 }
-.add-new-task > .add-new-task_button{
+
+.add-new-task>.add-new-task_button {
     background-color: teal;
     color: white;
     border: none;
 }
 
-.add-new-task > .add-new-task_button:hover{
+.add-new-task>.add-new-task_button:hover {
     background-color: rgb(4, 153, 153);
+}
+
+.tasks_header {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+
+.tasks_header--header {
+    font-size: 1.5em;
+    margin: 0;
+    padding: 10px;
+}
+
+.tasks_header--functionButtons {
+    display: flex;
+
+}
+
+.tasks_functionButtons {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.3rem;
+    color: rgb(19, 121, 121);
+}
+
+.tasks_functionButtons:hover{
+   color: rgb(48, 179, 179);
+   transition: 0.3s;
 }
