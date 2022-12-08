@@ -1,0 +1,46 @@
+.tasksGrid {
+    display: grid;
+    grid-template-columns: 1fr 12fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.toggleDoneButton {
+   border:none;
+   background-color: green;
+   width: 2rem;
+   height: 2rem;
+   color: white;
+   font-size: 1rem;
+   display: block;
+}
+.toggleDoneButton:hover{
+    background-color: rgb(5, 146, 5);
+
+}
+.deleteTask{
+    display: flex;
+    justify-content: flex-end;
+}
+.deleteTaskButton {
+    border:none;
+    background-color: red;
+    width: 2rem;
+    height: 2rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.deleteTaskButton:hover{
+    background-color: rgb(185, 6, 6);
+}
+.task-done{
+    text-decoration: line-through;
+}
+
+.tasksGrid{
+    height: 82px;
+}
