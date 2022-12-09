@@ -1,0 +1,118 @@
+{
+    let tasks = [];
+    let hideDoneTasks = false;
+
+    const addNewTask = (newTaskContent) => {
+        tasks = [...tasks, { content: newTaskContent }];
+        render();
+    };
+
+
+    function render() {
+        let htmlString = "";
+
+        for (const task of tasks) {
+            htmlString +=
+                `
+        <div class="tasksGrid">
+        <div class="task-done-toggle">
+        <button class="toggleDoneButton">${task.done ? "&#10003" : ""}</button>
+        </div>
+
+        <span class="tasksText${task.done ? " task-done" : ""}">
+        ${task.content}
+        </span>
+
+        <div class="deleteTask">
+        <button class="deleteTaskButton">&#128465</button>
+        </div>
+        </div>
+    `
+        }
+
+        document.querySelector('.tasks').innerHTML = htmlString;
+        deleteTask();
+
+        toggleTaskDone();
+
+
+    }
+
+    function showheader() {
+        const tasksHeader = document.querySelector('.tasks_header');
+        tasksHeader.style.display = "grid";
+    }
+
+
+
+
+    function hideAllTasks() {
+        const hideTasksButton = document.querySelector('.js-hideAll');
+        hideTasksButton.addEventListener("click", () => {
+
+            const tasksGrid = document.querySelector('.tasks');
+
+            tasksGrid.classList.toggle("toggleAllTasks");
+            if (tasksGrid.classList.contains("toggleAllTasks")) {
+                hideTasksButton.innerHTML = "Show All Tasks";
+            } else {
+                hideTasksButton.innerHTML = "Hide All Tasks";
+            }
+
+        })
+    }
+
+
+
+
+    function taskPush() {
+        const newTask = document.querySelector('.task-text');
+        const newTaskContent = newTask.value.trim();
+        if (newTaskContent === "") {
+            return;
+        }
+        tasks.push({
+            content: newTaskContent,
+        });
+        newTask.value = "";
+        newTask.focus();
+        hideAllTasks();
+        render();
+
+    }
+
+    function deleteTask() {
+        const removeButtons = document.querySelectorAll('.deleteTaskButton');
+        removeButtons.forEach((removeButton, index) => {
+            removeButton.addEventListener("click", () => {
+                tasks.splice(index, 1);
+                render();
+            });
+        });
+    };
+
+
+    function toggleTaskDone() {
+        const doneButton = document.querySelectorAll(".toggleDoneButton");
+        doneButton.forEach((doneButton, index) => {
+            doneButton.addEventListener("click", () => {
+                tasks[index].done = !tasks[index].done;
+                render()
+            });
+        });
+
+    }
+
+
+    let tasks = [];
+    const button = document.querySelector('.js-form');
+
+    button.addEventListener("submit", (event) => {
+        event.preventDefault();
+        showheader();
+        taskPush();
+
+
+
+    })
+}

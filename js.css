@@ -44,3 +44,15 @@
 .tasksGrid{
     height: 82px;
 }
+
+.toggleAllTasks{
+    opacity: 0;
+}
+
+.tasks__item--hidden {
+    display: none;
+}
+
+.tasks__item{
+    list-style-type: none;
+}
